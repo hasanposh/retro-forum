@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro Forum</title>
     <!-- fontawsome icons -->
-    <script src="https://kit.fontawesome.com/6b0cbd5cf0.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/6b0cbd5cf0.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- daisyUI and Tailwind -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
@@ -13,6 +16,69 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- style css -->
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
-  <body></body>
+  <body class="font-mulish">
+    <header>
+      <!-- navbar -->
+      <nav class="container mx-auto my-6">
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box gap-3"
+              >
+              <button class="p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-house"></i></button>
+              <button class="p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-pen"></i></button>
+              <button class="p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-user-plus"></i></button>
+              <button class="p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-flag"></i></i></button>
+              </ul>
+            </div>
+            <a class="btn btn-ghost text-[#030712] text-3xl font-[1000]">ShaRable</a>
+          </div>
+          
+          <div class="navbar-end gap-8">
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 gap-3">
+                  <div class="tooltip" data-tip="Home">
+                    <button class="p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-house"></i></button>
+                  </div>
+                  <div class="tooltip" data-tip="Write Your Opinion">
+                    <button class="p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-pen"></i></button>
+                  </div>
+                  <div class="tooltip" data-tip="Find Author">
+                    <button class=" p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-user-plus"></i></button>
+                  </div>
+                  <div class="tooltip" data-tip="Your Pin Post">
+                    <button class=" hover:bg-gray-400 p-4 rounded-[100%] border-2 border-gray-400 bg-gray-200"><i class="fa-solid fa-flag"></i></i></button>
+                  </div>
+                  
+                </ul>
+              </div>
+            <a class="btn rounded-full w-32 text-white bg-[#797DFC]">Sign In</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main></main>
+    <footer></footer>
+  </body>
 </html>
