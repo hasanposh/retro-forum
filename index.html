@@ -115,34 +115,122 @@
     </header>
     <main>
         <!-- main section start -->
-        <div class="my-10 space-y-5">
-            <h3 class="text-center text-6xl font-extrabold">Let’s Discuss</h3>
+        <div class="container mx-auto my-10 ">
+            <h3 class="text-center text-6xl font-extrabold mb-5">Let’s Discuss</h3>
             <p class="text-center text-xl opacity-80">Yes, you can run unit tests and view the results directly within the app.
                 <br> The integrated testing features allow for a streamlined .</p>
                 <!-- post cards container -->
-                <div class="container mx-auto flex flex-col lg:flex-row">
+                <div class="my-20 flex flex-col gap-10 lg:flex-row ">
                     <!-- all post cards box -->
                     <div id="posts-card" class="">
                         <!-- single card -->
-                        <div class="bg-slate-200 h-64">
-                            <div>
-                                
-                                <div class="bg-blue-300 size-20 rounded-lg relative">
-                                    <div class="absolute size-5 -translate-x-3 -translate-y-2 left-full bg-red-700 rounded-full">
-
-                                    </div>
+                        <div class="bg-slate-200 p-10 rounded-xl gap-6 flex">
+                            <!--auth image  -->
+                            <div class="size-20 relative">
+                              <img class="rounded-xl" src="images/cat9.jpg" alt="">
+                                <div class="absolute size-5 -translate-x-3 translate-y-3 bottom-full left-full bg-red-700 rounded-full">
+                                </div> 
+                            </div>
+                            <!-- auth info and post-->
+                            <div class="space-y-3">
+                              <div class="flex gap-10">
+                                <p># Music</p>
+                                <p>Author : Awlad Hossain</p>
+                              </div>
+                              <h5 class="font-extrabold text-2xl">10 Kids Unaware of Their Halloween Costume</h5>
+                              <p class="opacity-80">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+                              <div class="divider m-0"></div> 
+                              <div class="flex justify-between">
+                                <div class="flex gap-10 opacity-80">
+                                  <P><i class="fa-regular fa-comment"></i> <span> 560</span></P>
+                                  <P><i class="fa-regular fa-eye"></i><span> 450</span></P>
+                                  <P><i class="fa-regular fa-clock"></i><span> 5 min</span></P>
                                 </div>
-                                
+                                <button class="rounded-[100%] bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
+                              </div>
                             </div>
                         </div>
                     </div>
                     <!-- selected post cards box -->
-                    <div>
-
+                    <div class="flex-1 w-full bg-slate-200 p-10 rounded-xl space-y-4">
+                      <div class="flex justify-between">
+                        <h3 class="text-3xl font-extrabold">Title</h3>
+                        <p class="font-bold text-xl">Mark as read <span>( 0 )</span></p>
+                      </div>
+                      <div class="">
+                        <div class="flex justify-between p-6 gap-5 bg-white rounded-xl">
+                          <h4 class="text-xl font-extrabold">10 Kids Unaware of Their Halloween Costume</h4>
+                         <div class="flex gap-3 items-center">
+                          <i class="fa-regular fa-eye font-extrabold"></i>
+                          <P class="font-extrabold"></i><span> 450</span></P>
+                         </div>
+                        </div>
+                      </div>
                     </div>
+                </div>
+                <!-- join Forum banner -->
+                <div class="flex items-center justify-between text-white h-[450px] rounded-3xl bg-[#12132D] my-32 p-20 ">
+                  <div class="space-y-6">
+                    <h3 class="text-5xl font-extrabold">Join Our Forum</h3>
+                    <p class="opacity-80 text-xl">Share your favorite opinion and win and wp forum coffee mug! Yes, you can
+                      <br>
+                      run unit tests and view the results directly within the app. </p>
+                      <button class="btn border-none rounded-full font-bold text-white bg-[#797DFC]">Registered Now</button>
+                  </div>
+                  <div>
+                    <img src="images/joinforum.png" alt="">
+                  </div>
+                </div>
+                <!-- latest post -->
+                <h3 class="text-center text-6xl font-extrabold mb-5">Latest Posts</h3>
+            <p class="text-center text-xl opacity-80">Yes, you can run unit tests and view the results directly within the app.
+                <br> The integrated testing features allow for a streamlined .</p>
+                <!-- latest card container -->
+                <div class=" py-20 grid grid-cols-1 lg:grid-cols-3">
+
+                  <!-- single latest card -->
+                  <div class="card bg-base-100 shadow-xl border-2">
+                    
+                    <figure class="px-10 pt-10">
+                      <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body ">
+                      <div class="flex items-center gap-3">
+                        <i class="fa-regular fa-calendar"></i>
+                        <p>29 January 2024</p>
+                      </div>
+                      <h2 class="card-title font-extrabold">What will a mars habitat force that impact in our daily life!!!</h2>
+                      <p class="opacity-80">Yes, you can run unit tests and view the results directly within the app. </p>
+                      <div class="flex gap-6">
+                          <img class="size-12 rounded-full" src="images/cat9.jpg" alt="">
+                        <div>
+                          <h5 class="font-extrabold">Cameron Williamson</h5>
+                          <p class="opacity-80">Unknown</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
         </div>
     </main>
-    <footer></footer>
+    <footer class="footer footer-center p-20 bg-[#f6f6f7] ">
+      <div>
+        <h3 class="text-4xl font-extrabold">ShaRable</h3> 
+      <p class="text-lg opacity-80">Yes, you can run unit tests and view the results directly within the app. The integrated
+        <br>
+        testing features allow for a streamlined .</p>
+      </div>
+      <nav>
+        <div class="grid grid-flow-col gap-6 text-4xl">
+          <a><i class="fa-brands fa-facebook"></i></a>
+          <a><i class="fa-brands fa-instagram"></i></a>
+          <a><i class="fa-brands fa-twitter"></i></a>
+          <a><i class="fa-brands fa-github"></i></a>
+        </div>
+      </nav>
+      <hr class=" w-full">
+      <p class="opacity-80 text-lg">2017, All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
