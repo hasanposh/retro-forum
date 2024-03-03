@@ -119,7 +119,7 @@ const searchCategoryPost = async (id) => {
                                   <P><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></P>
                                   <P><i class="fa-regular fa-clock"></i><span> ${element.posted_time} min</span></P>
                                 </div>
-                                <button onclick="selectCard('${element.title}' ,' ${element.view_count}')" class="rounded-[100%] text-white bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
+                                <button onclick="selectCard('${element.title.replace(/'/g, '')}' ,' ${element.view_count}')" class="rounded-[100%] text-white bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
                               </div>
                             </div>
                         
