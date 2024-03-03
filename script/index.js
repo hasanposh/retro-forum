@@ -4,6 +4,7 @@ const readCountElement = document.getElementById('read-count')
 const ActiveIndicator = document.getElementById('active-indicator')
 const latestCardContainer = document.getElementById('latest-card-container')
 const searchInputField = document.getElementById('search-input')
+
 const loadPostCard = async () => {
     const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
     const data = await response.json();
@@ -37,7 +38,7 @@ const loadPostCard = async () => {
                                   <P><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></P>
                                   <P><i class="fa-regular fa-clock"></i><span> ${element.posted_time} min</span></P>
                                 </div>
-                                <button onclick="selectCard('${element.title.replace(/'/g,'')}' ,' ${element.view_count}')" class="rounded-[100%] text-white bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
+                                <button onclick="selectCard('${element.title.replace(/'/g, '')}' ,' ${element.view_count}')" class="rounded-[100%] text-white bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
                               </div>
                             </div>
                         
@@ -45,9 +46,11 @@ const loadPostCard = async () => {
         // console.log()
         postCard.appendChild(card)
     });
+
 }
 
 const loadLatestPostCard = async () => {
+    
     const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
     const data = await response.json();
     // console.log(data[0].title)
@@ -57,8 +60,6 @@ const loadLatestPostCard = async () => {
         const latestCard = document.createElement('div')
         latestCard.classList = `card bg-base-100 shadow-xl border-2`
         latestCard.innerHTML = `
-        
-                    
                     <figure class="px-10 pt-10">
                       <img src="${element.cover_image}" alt="" class="rounded-xl" />
                     </figure>
@@ -92,7 +93,6 @@ const searchCategoryPost = async (id) => {
     // console.log(data.posts)
     data.posts.forEach(element => {
         // console.log(element)
-        
         const activeUser = element.isActive;
         // console.log(activeUser)
         const card = document.createElement('div')
@@ -126,10 +126,14 @@ const searchCategoryPost = async (id) => {
         `
         // console.log()
         postCard.appendChild(card)
+
     });
+    toggleSpinner(false);
+
 }
 
 const getSearchInput = () => {
+    toggleSpinner(true);
     const inputText = searchInputField.value;
     searchCategoryPost(inputText)
 }
@@ -137,7 +141,6 @@ const getSearchInput = () => {
 
 let readCount = 0;
 const selectCard = (title, view) => {
-
     // console.log(title,view,"bello")
     const selectedCard = document.createElement('div')
     selectedCard.classList = `flex justify-between p-6 gap-5 bg-white rounded-xl`
@@ -151,6 +154,17 @@ const selectCard = (title, view) => {
     selectedCardContainer.appendChild(selectedCard)
     readCount++;
     readCountElement.innerText = readCount;
+}
+
+const toggleSpinner = (isTrue) => {
+    // console.log('hello')
+    const toggleSpinnerElement = document.getElementById('loading-spinner')
+    if (isTrue) {
+        toggleSpinnerElement.classList.remove('hidden')
+    }
+    else {
+        toggleSpinnerElement.classList.add('hidden')
+    }
 }
 loadLatestPostCard();
 loadPostCard();
