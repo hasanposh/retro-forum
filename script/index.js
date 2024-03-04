@@ -1,4 +1,5 @@
 const postCard = document.getElementById('posts-card')
+const postCardContainer = document.getElementById('post-card-container')
 const selectedCardContainer = document.getElementById('selected-card-container')
 const readCountElement = document.getElementById('read-count')
 const ActiveIndicator = document.getElementById('active-indicator')
@@ -6,17 +7,17 @@ const latestCardContainer = document.getElementById('latest-card-container')
 const searchInputField = document.getElementById('search-input')
 
 const loadPostCard = async () => {
-    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
-    const data = await response.json();
-    // console.log(data.posts)
-    const allCard = data.posts;
-    allCard.forEach(element => {
-        // console.log(element.isActive)
-        const activeUser = element.isActive;
-        // console.log(activeUser)
-        const card = document.createElement('div')
-        card.classList = ` bg-[#f6f6f7] p-10 rounded-xl gap-6 flex`
-        card.innerHTML = `
+  const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
+  const data = await response.json();
+  // console.log(data.posts)
+  const allCard = data.posts;
+  allCard.forEach(element => {
+    // console.log(element.isActive)
+    const activeUser = element.isActive;
+    // console.log(activeUser)
+    const card = document.createElement('div')
+    card.classList = ` bg-[#f6f6f7] p-10 rounded-xl gap-6 flex lg:flex-row flex-col items-center lg:items-start`
+    card.innerHTML = `
                             <!--auth image  -->
                             <div class="size-20 relative">
                               <img class="rounded-xl" src="${element.image}" alt="">
@@ -33,7 +34,7 @@ const loadPostCard = async () => {
                               <p class="opacity-80">${element.description}</p>
                               <div class="divider m-0"></div> 
                               <div class="flex justify-between">
-                                <div class="flex gap-10 opacity-80">
+                                <div class="flex gap-5 lg:gap-10 opacity-80">
                                   <P><i class="fa-regular fa-comment"></i> <span> ${element.comment_count}</span></P>
                                   <P><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></P>
                                   <P><i class="fa-regular fa-clock"></i><span> ${element.posted_time} min</span></P>
@@ -43,23 +44,23 @@ const loadPostCard = async () => {
                             </div>
                         
         `
-        // console.log()
-        postCard.appendChild(card)
-    });
+    // console.log()
+    postCard.appendChild(card)
+  });
 
 }
 
 const loadLatestPostCard = async () => {
-    
-    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
-    const data = await response.json();
-    // console.log(data[0].title)
-    data.forEach(element => {
-        // console.log(element.title)
 
-        const latestCard = document.createElement('div')
-        latestCard.classList = `card bg-base-100 shadow-xl border-2`
-        latestCard.innerHTML = `
+  const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
+  const data = await response.json();
+  // console.log(data[0].title)
+  data.forEach(element => {
+    // console.log(element.title)
+
+    const latestCard = document.createElement('div')
+    latestCard.classList = `card bg-base-100 shadow-xl border-2`
+    latestCard.innerHTML = `
                     <figure class="px-10 pt-10">
                       <img src="${element.cover_image}" alt="" class="rounded-xl" />
                     </figure>
@@ -81,23 +82,23 @@ const loadLatestPostCard = async () => {
                   
         `
 
-        latestCardContainer.appendChild(latestCard)
-    });
+    latestCardContainer.appendChild(latestCard)
+  });
 
 }
 
 const searchCategoryPost = async (id) => {
-    const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${id}`)
-    const data = await response.json();
-    postCard.innerHTML = ''
-    // console.log(data.posts)
-    data.posts.forEach(element => {
-        // console.log(element)
-        const activeUser = element.isActive;
-        // console.log(activeUser)
-        const card = document.createElement('div')
-        card.classList = ` bg-[#f6f6f7] p-10 rounded-xl gap-6 flex`
-        card.innerHTML = `
+  const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${id}`)
+  const data = await response.json();
+  postCard.innerHTML = ''
+  // console.log(data.posts)
+  data.posts.forEach(element => {
+    // console.log(element)
+    const activeUser = element.isActive;
+    // console.log(activeUser)
+    const card = document.createElement('div')
+    card.classList = ` bg-[#f6f6f7] p-10 rounded-xl gap-6 flex`
+    card.innerHTML = `
                             <!--auth image  -->
                             <div class="size-20 relative">
                               <img class="rounded-xl" src="${element.image}" alt="">
@@ -124,46 +125,50 @@ const searchCategoryPost = async (id) => {
                             </div>
                         
         `
-        // console.log()
-        postCard.appendChild(card)
+    // console.log()
+    postCard.appendChild(card)
 
-    });
-    toggleSpinner(false);
-
+  });
+  toggleSpinner(false);
 }
 
 const getSearchInput = () => {
-    toggleSpinner(true);
-    const inputText = searchInputField.value;
+  toggleSpinner(true);
+  const inputText = searchInputField.value;
+  setTimeout(() => {
     searchCategoryPost(inputText)
+  }, 2000);
 }
 
 
 let readCount = 0;
 const selectCard = (title, view) => {
-    // console.log(title,view,"bello")
-    const selectedCard = document.createElement('div')
-    selectedCard.classList = `flex justify-between p-6 gap-5 bg-white rounded-xl`
-    selectedCard.innerHTML = `
+  // console.log(title,view,"bello")
+  const selectedCard = document.createElement('div')
+  selectedCard.classList = `flex justify-between p-6 gap-5 bg-white rounded-xl`
+  selectedCard.innerHTML = `
         <h4 class="text-xl font-extrabold">${title}</h4>
         <div class="flex gap-3 items-center">
          <i class="fa-regular fa-eye font-extrabold"></i>
          <P class="font-extrabold"></i><span> ${view}</span></P>
         `
-    console.log(readCount)
-    selectedCardContainer.appendChild(selectedCard)
-    readCount++;
-    readCountElement.innerText = readCount;
+  console.log(readCount)
+  selectedCardContainer.appendChild(selectedCard)
+  readCount++;
+  readCountElement.innerText = readCount;
 }
+
 
 const toggleSpinner = (isTrue) => {
     // console.log('hello')
     const toggleSpinnerElement = document.getElementById('loading-spinner')
     if (isTrue) {
         toggleSpinnerElement.classList.remove('hidden')
+        postCardContainer.classList.add('hidden')
     }
     else {
         toggleSpinnerElement.classList.add('hidden')
+        postCardContainer.classList.remove('hidden')
     }
 }
 loadLatestPostCard();
