@@ -2,7 +2,6 @@ const postCard = document.getElementById('posts-card')
 const postCardContainer = document.getElementById('post-card-container')
 const selectedCardContainer = document.getElementById('selected-card-container')
 const readCountElement = document.getElementById('read-count')
-const ActiveIndicator = document.getElementById('active-indicator')
 const latestCardContainer = document.getElementById('latest-card-container')
 const searchInputField = document.getElementById('search-input')
 
