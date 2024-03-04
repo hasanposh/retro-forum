@@ -39,7 +39,7 @@ const loadPostCard = async () => {
                                   <P><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></P>
                                   <P><i class="fa-regular fa-clock"></i><span> ${element.posted_time} min</span></P>
                                 </div>
-                                <button onclick="selectCard('${element.title.replace(/'/g, '')}' ,' ${element.view_count}')" class="rounded-[100%] text-white bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
+                                <button onclick="selectCard('${element.title.replace(/'/g, '')}' ,' ${element.view_count}')"class="rounded-[100%] text-white bg-green-400 py-2 px-3"><i class="fa-regular fa-envelope-open"></i></button>
                               </div>
                             </div>
                         
@@ -97,7 +97,7 @@ const searchCategoryPost = async (id) => {
     const activeUser = element.isActive;
     // console.log(activeUser)
     const card = document.createElement('div')
-    card.classList = ` bg-[#f6f6f7] p-10 rounded-xl gap-6 flex`
+    card.classList = ` bg-[#f6f6f7] p-10 rounded-xl gap-6 flex lg:flex-row flex-col items-center lg:items-start`
     card.innerHTML = `
                             <!--auth image  -->
                             <div class="size-20 relative">
